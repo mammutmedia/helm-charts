@@ -43,24 +43,30 @@ spec:
             - name: dashboard-port
               containerPort: {{ $svcPort | default 4040 }}
               protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: {{ .Values.readinessProbe.path | default "/healthz" }}
-              port: dashboard-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 30
-          livenessProbe:
-            httpGet:
-              path: {{ .Values.livenessProbe.path | default "/healthz" }}
-              port: dashboard-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 30
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-        volumeMounts:
-          - name: {{ .Chart.Name }}-config
-            mountPath: /usr/src/app/config
-            readonly: true
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ $svcPort | default 4040 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ $svcPort | default 4040 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          volumeMounts:
+            - name: {{ .Chart.Name }}-config
+              mountPath: /usr/src/app/config
+              readOnly: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
