@@ -14,7 +14,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
         with:
           fetch-depth: 0
 
@@ -37,6 +37,8 @@ jobs:
               (cd ${dir}; helm dependency build)
           done
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
+        uses: helm/chart-releaser-action@c25b74a986eb925b398320414b576227f375f946 # renovate: tag=v1.2.1
+        with:
+          version: v1.3.0 #renovate: datasource=github-releases depName=chart-releaser lookupName=helm/chart-releaser
         env:
           CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
