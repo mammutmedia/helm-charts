@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: node
   pullPolicy: IfNotPresent
-  tag: "14"
+  tag: "17"
 
 imagePullSecrets: []
 nameOverride: ""
