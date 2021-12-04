@@ -41,6 +41,9 @@ jobs:
           export HELM_EXPERIMENTAL_OCI=1
           echo ${{ secrets.REPO_TOKEN }} | helm registry login -u admin --password-stdin https://registry.mammut-hosting.de/helm-charts
 
+      - name: Add mammut-helm repo
+        run: echo ${{ secrets.REPO_TOKEN }} | helm repo add --username admin --password-stdin mammut-helm https://registry.mammut-hosting.de/artifactory/helm-charts
+
       - name: Run release script
         run: |
           chmod +x .github/release.sh
