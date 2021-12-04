@@ -44,7 +44,7 @@ jobs:
       - name: Install artifactory plugin
         run: helm plugin install https://github.com/belitre/helm-push-artifactory-plugin --version v1.0.1
         if: steps.list-changed.outputs.changed == 'true'
-        
+
       - name: Login to chart repo
         run: | 
           export HELM_EXPERIMENTAL_OCI=1
@@ -55,10 +55,22 @@ jobs:
         run: echo ${{ secrets.REPO_TOKEN }} | helm repo add --username admin --password-stdin mammut-helm https://registry.mammut-hosting.de/artifactory/helm-charts
         if: steps.list-changed.outputs.changed == 'true'
 
-      - name: Run release script
+      - name: Get changed charts
+        run: IFS=$'\n' CHARTS=($(ct lsc))
+        if: steps.list-changed.outputs.changed == 'true'
+
+      - name: Package Charts
         run: |
-          chmod +x .github/release.sh
-          ./.github/release.sh
+          for i in "${CHARTS[@]}"; do
+            helm package $i
+          done
+        if: steps.list-changed.outputs.changed == 'true'
+
+      - name: Upload Charts
+        run: |
+          for j in *.tgz; do
+            helm push-artifactory $j mammut-helm
+          done
         if: steps.list-changed.outputs.changed == 'true'
 
       
