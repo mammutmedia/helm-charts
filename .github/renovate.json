@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "assignees": ["Mammut-Felix"],
+  "packageRules": [
+    {
+      "description": "Require approval for kindest major and minor updates",
+      "matchPackageNames": ["kindest/node"],
+      "matchUpdateTypes": ["major", "minor"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
