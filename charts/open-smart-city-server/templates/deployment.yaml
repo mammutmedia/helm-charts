@@ -1,0 +1,147 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "open-smart-city-server.fullname" . }}
+  labels:
+    {{- include "open-smart-city-server.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "open-smart-city-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "open-smart-city-server.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        {{- if .Values.server.github.private }}
+        - name: git-secret
+          secret:
+            secretName: {{ .Values.server.github.sshSecret }}
+            defaultMode: 0400
+        {{- end }}
+        - name: data
+          emptyDir: {}
+        - name: {{ include "open-smart-city-server.fullname" . }}-env-vol
+          secret:
+            secretName: {{ include "open-smart-city-server.fullname" . }}-env
+        {{- if .Values.server.parse.iosCert.enabled }}
+        - name: {{ include "open-smart-city-server.fullname" . }}-ios-cert-vol
+          secret:
+            secretName: {{ include "open-smart-city-server.fullname" . }}-ios-cert
+        {{- end }}
+      serviceAccountName: {{ include "open-smart-city-server.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ include "open-smart-city-server.fullname" . }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          image: "{{ .Values.image.repository | default "node" }}:{{ .Values.image.tag | default "14" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: /usr/src/data
+              name: data
+          workingDir: /usr/src/data
+          command: ["yarn", "start"]
+          ports:
+            - containerPort: {{ .Values.service.port | default 1337 }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path | default "/healthz" }}
+              port: {{ .Values.readinessProbe.port | default 1337 }}
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path | default "/healthz" }}
+              port: {{ .Values.livenessProbe.port | default 1337 }}
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+      initContainers:
+      - name: git-clone
+        image: alpine/git
+        imagePullPolicy: IfNotPresent
+        args:
+          - clone
+          - --depth 1
+          - {{ .Values.server.github.repoUrl }}
+          - /data
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        {{- if .Values.server.github.private }}
+        - mountPath: '/root/.ssh'
+          name: git-secret
+          readOnly: true
+        {{- end }}
+      - name: check-out-branch
+        image: alpine/git
+        imagePullPolicy: IfNotPresent
+        workingDir: /data
+        args:
+          - checkout
+          - {{ .Values.server.github.branch }}
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      - name: yarn-install
+        image: "{{ .Values.image.repository | default "node" }}:{{ .Values.image.tag | default "12" }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        workingDir: /data
+        args:
+          - yarn
+          - install
+          - --prod
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      - name: move-env
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        args:
+          - cp
+          - /env/.env
+          - /data/.env
+        volumeMounts:
+        - mountPath: /env
+          name: {{ include "open-smart-city-server.fullname" . }}-env-vol
+          readOnly: true
+        - mountPath: /data
+          name: data
+      {{- if .Values.server.parse.iosCert.enabled }}
+      - name: move-ios-cert
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        args:
+          - cp
+          - /ios-cert/ios_push_key.p8
+          - /data/ios_push_key.p8
+        volumeMounts:
+        - mountPath: /ios-cert
+          name: {{ include "open-smart-city-server.fullname" . }}-ios-cert-vol
+          readOnly: true
+        - mountPath: /data
+          name: data
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

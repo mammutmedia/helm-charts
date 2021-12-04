@@ -1,0 +1,148 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "myturn-eventbus.fullname" . }}
+  labels:
+    {{- include "myturn-eventbus.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "myturn-eventbus.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "myturn-eventbus.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        {{- if .Values.github.private }}
+        - name: ssh-key
+          secret:
+            secretName: {{ .Values.github.sshSecret }}
+            defaultMode: 0600
+        {{- end }}
+        - name: data
+          emptyDir: {}
+        - name: {{ include "myturn-eventbus.fullname" . }}-env-vol
+          secret:
+            secretName: {{ include "myturn-eventbus.fullname" . }}-env
+        - name: {{ include "myturn-eventbus.fullname" . }}-service-account-vol
+          secret:
+            secretName: {{ include "myturn-eventbus.fullname" . }}-service-account
+      serviceAccountName: {{ include "myturn-eventbus.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ include "myturn-eventbus.fullname" . }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          image: "{{ .Values.image.repository | default "node" }}:{{ .Values.image.tag | default "12" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: /usr/src/data
+              name: data
+          workingDir: /usr/src/data
+          command: ["yarn", "start"]
+          ports:
+            - containerPort: {{ .Values.service.port | default 1337 }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path | default "/healthz" }}
+              port: {{ .Values.readinessProbe.port | default 1337 }}
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path | default "/healthz" }}
+              port: {{ .Values.livenessProbe.port | default 1337 }}
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+      initContainers:
+      - name: git-clone
+        image: alpine/git
+        imagePullPolicy: IfNotPresent
+        args:
+          - clone
+          - {{ .Values.github.repo }}
+          - /data
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        {{- if .Values.github.private }}
+        - mountPath: '/root/.ssh'
+          name: ssh-key
+          readOnly: true
+        {{- end }}
+        resources:
+              {{- toYaml .Values.initContainer.clone.resources | nindent 12 }}
+      - name: check-out-branch
+        image: alpine/git
+        imagePullPolicy: IfNotPresent
+        workingDir: /data
+        args:
+          - checkout
+          - {{ .Values.github.branch }}
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        resources:
+            {{- toYaml .Values.initContainer.checkout.resources | nindent 12 }}
+      - name: yarn-install
+        image: "{{ .Values.image.repository | default "node" }}:{{ .Values.image.tag | default "12" }}"
+        imagePullPolicy: IfNotPresent
+        workingDir: /data
+        args:
+          - yarn
+          - install
+          - --prod
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        resources:
+            {{- toYaml .Values.initContainer.yarn.resources | nindent 12 }}
+      - name: move-env
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        args:
+          - cp
+          - /env/.env
+          - /data/.env
+        volumeMounts:
+        - mountPath: /env
+          name: {{ include "myturn-eventbus.fullname" . }}-env-vol
+          readOnly: true
+        - mountPath: /data
+          name: data
+      - name: move-service-account-json
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        args:
+          - cp
+          - /service-account/service-account.json
+          - /data/service-account.json
+        volumeMounts:
+        - mountPath: /service-account
+          name: {{ include "myturn-eventbus.fullname" . }}-service-account-vol
+          readOnly: true
+        - mountPath: /data
+          name: data
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

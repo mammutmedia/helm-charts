@@ -1,0 +1,14 @@
+---
+{{- if .Values.maxUnavailable }}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "parse-dashboard.fullname" . }}
+  labels:
+    {{- include "parse-dashboard.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "parse-dashboard.selectorLabels" . | nindent 6 }}
+{{- end }}

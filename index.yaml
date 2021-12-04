@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  open-smart-city-server:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-11-16T14:33:19.571219+01:00"
+    description: A Helm chart for OpenSmartCityServer
+    digest: 651f8e5d484a05e2f5faa97f22f181a6e1efeb2fbe36d18cf58fbe593c4a9de2
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+    - email: d.genctuerk@mammutmedia.eu
+      name: Deniz Genctürk
+    name: open-smart-city-server
+    type: application
+    urls:
+    - open-smart-city-server-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-16T14:33:19.570124+01:00"

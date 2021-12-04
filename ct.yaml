@@ -1,0 +1,8 @@
+remote: origin
+target-branch: master
+chart-dirs:
+  - charts
+chart-repos:
+  - mammut-helm=https://registry.mammut-hosting.de/artifactory/mammut-helm
+helm-extra-args: --timeout 600s
+validate-maintainers: false

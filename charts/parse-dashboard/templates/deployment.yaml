@@ -1,0 +1,75 @@
+{{- $svcPort := .Values.service.port -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "parse-dashboard.fullname" . }}
+  labels:
+    {{- include "parse-dashboard.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "parse-dashboard.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "parse-dashboard.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "parse-dashboard.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: {{ .Chart.Name }}-config
+          secret:
+            secretName: {{ .Chart.Name }}-config
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: dashboard-port
+              containerPort: {{ $svcPort | default 4040 }}
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path | default "/healthz" }}
+              port: dashboard-port
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path | default "/healthz" }}
+              port: dashboard-port
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        volumeMounts:
+          - name: {{ .Chart.Name }}-config
+            mountPath: /usr/src/app/config
+            readonly: true
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
