@@ -22,6 +22,7 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
@@ -38,7 +39,5 @@ jobs:
           done
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@c25b74a986eb925b398320414b576227f375f946 # renovate: tag=v1.2.1
-        with:
-          version: v1.3.0 #renovate: datasource=github-releases depName=chart-releaser lookupName=helm/chart-releaser
         env:
-          CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
