@@ -1,0 +1,6 @@
+chart-dirs:
+  - charts
+chart-repos:
+  - mammut-helm=https://registry.mammut-hosting.de/artifactory/helm-charts
+debug: true
+remote: origin
