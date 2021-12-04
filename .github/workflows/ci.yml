@@ -35,7 +35,9 @@ jobs:
           fi
 
       - name: Login to chart repo
-        run: echo ${{ secrets.REPO_TOKEN }} | helm registry login -u admin --password-stdin https://registry.mammut-hosting.de/helm-charts
+        run: | 
+          export HELM_EXPERIMENTAL_OCI=1
+          echo ${{ secrets.REPO_TOKEN }} | helm registry login -u admin --password-stdin https://registry.mammut-hosting.de/helm-charts
 
       - name: Run chart-testing (lint)
         run: ct lint --config ct.yaml
