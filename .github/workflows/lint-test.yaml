@@ -65,7 +65,6 @@ jobs:
           changed=$(ct list-changed --config .github/ct-install.yaml)
           if [[ -n "$changed" ]]; then
             echo "::set-output name=changed::true"
-            echo "::set-output name=charts::$changed"
           fi
 
       - name: Create kind cluster
