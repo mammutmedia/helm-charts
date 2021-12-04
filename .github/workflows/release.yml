@@ -61,6 +61,7 @@ jobs:
 
       - name: Package Charts
         run: |
+          echo "Packaging this charts: ${CHARTS[@]}"
           for i in "${CHARTS[@]}"; do
             helm package $i
           done
@@ -68,6 +69,7 @@ jobs:
 
       - name: Upload Charts
         run: |
+          echo "Uploading this charts: ${CHARTS[@]}"
           for j in *.tgz; do
             helm push-artifactory $j mammut-helm
           done
