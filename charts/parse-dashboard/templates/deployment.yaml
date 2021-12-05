@@ -40,15 +40,13 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: dashboard-port
-              containerPort: {{ $svcPort | default 4040 }}
-              protocol: TCP
+            - containerPort: {{ .Values.service.port | default 4040 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
             httpGet:
               path: /healthz
-              port: {{ $svcPort | default 4040 }}
+              port: {{ .Values.service.port | default 4040 }}
             initialDelaySeconds: 10
             timeoutSeconds: 30
             periodSeconds: 10
@@ -57,7 +55,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz
-              port: {{ $svcPort | default 4040 }}
+              port: {{ .Values.service.port | default 4040 }}
             initialDelaySeconds: 10
             timeoutSeconds: 30
             periodSeconds: 10
