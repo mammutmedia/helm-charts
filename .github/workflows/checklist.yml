@@ -4,7 +4,7 @@ on: [pull_request_target]
 
 jobs:
   checklist_job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Checklist job
     steps:
       - name: Checkout
