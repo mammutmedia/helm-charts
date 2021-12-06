@@ -1,0 +1,17 @@
+apiVersion: v2
+appVersion: '3.2.1'
+description: A Helm chart for myturn-eventbus
+name: myturn-eventbus
+version: '1.0.0'
+home: https://github.com/mammutmedia/myturn-eventbus
+sources:
+  - https://github.com/mammutmedia/myturn-eventbus
+  - https://github.com/mammutmedia/helm-charts
+maintainers:
+  - name: Felix Nithammer
+    email: f.nithammer@mammutmedia.eu
+    url: https://mammutmedia.eu
+annotations:
+  artifacthub.io/images: |
+    - name: myturn-eventbus
+      image: mammuthosting/myturn-eventbus:1.0.0
