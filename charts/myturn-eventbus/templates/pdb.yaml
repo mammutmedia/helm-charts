@@ -1,0 +1,14 @@
+---
+{{- if .Values.maxUnavailable }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "myturn-eventbus.fullname" . }}
+  labels:
+    {{- include "myturn-eventbus.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "myturn-eventbus.selectorLabels" . | nindent 6 }}
+{{- end }}
