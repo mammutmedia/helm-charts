@@ -38,7 +38,7 @@ spec:
                 name: {{ .Values.env.secretName }}
           env:
             - name: PORT
-              value: {{ .Values.service.port | default 1337 }}
+              value: "{{ .Values.service.port | default 1337 }}"
           ports:
             - containerPort: {{ .Values.service.port | default 1337 }}
           readinessProbe:
