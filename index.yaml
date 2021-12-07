@@ -6,6 +6,27 @@ entries:
         - name: myturn-eventbus
           image: mammuthosting/myturn-eventbus:1.0.0
     apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-12-07T08:54:48.841469533Z"
+    description: A Helm chart for myturn-eventbus
+    digest: 9002c40453f7281e2a6e4401d6b43a081bfe425f27089abbafd22628b90c7d2f
+    home: https://github.com/mammutmedia/myturn-eventbus
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: myturn-eventbus
+    sources:
+    - https://github.com/mammutmedia/myturn-eventbus
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.0.1/myturn-eventbus-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/images: |-
+        - name: myturn-eventbus
+          image: mammuthosting/myturn-eventbus:1.0.0
+    apiVersion: v2
     appVersion: 3.2.1
     created: "2021-12-06T13:00:59.302977757Z"
     description: A Helm chart for myturn-eventbus
@@ -49,4 +70,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
-generated: "2021-12-06T13:00:59.302981557Z"
+generated: "2021-12-07T08:54:48.841478533Z"
