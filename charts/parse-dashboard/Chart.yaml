@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: '3.2.1'
+appVersion: '3.3.0'
 description: A Helm chart for parse-dashboard
 name: parse-dashboard
 version: '1.0.1'
@@ -16,7 +16,7 @@ annotations:
   artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/images: |
     - name: parse-dashboard
-      image: mammuthosting/parse-dashboard:3.2.1
+      image: mammuthosting/parse-dashboard:3.3.0
   artifacthub.io/links: |
     - name: docs
       url: https://docs.renovatebot.com
