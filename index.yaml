@@ -1,5 +1,32 @@
 apiVersion: v1
 entries:
+  e4f-server:
+  - annotations:
+      artifacthub.io/images: |
+        - name: e4f-server
+          image: mammuthosting/e4f-server:0.9.0
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |-
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 0.9.0
+    created: "2022-01-11T12:22:41.001201834Z"
+    description: A Helm chart for e4f-server
+    digest: 121af3aeb397c5e3d9bb9d31b5db56a61b5fbffa08546b1acaaee154411fbcfa
+    home: https://github.com/mammutmedia/e4f-server
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: e4f-server
+    sources:
+    - https://github.com/mammutmedia/e4f-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/e4f-server-0.9.0/e4f-server-0.9.0.tgz
+    version: 0.9.0
   myturn-eventbus:
   - annotations:
       artifacthub.io/images: |-
@@ -117,4 +144,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
-generated: "2022-01-03T15:24:57.70719184Z"
+generated: "2022-01-11T12:22:41.001221335Z"
