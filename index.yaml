@@ -177,6 +177,27 @@ entries:
           image: mammuthosting/stellenportal-server:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-01-27T19:07:13.845111275Z"
+    description: A Helm chart for stellenportal-server.
+    digest: 8049e03fa65f1a4f895229bbf5bd097656dcaa5ee6976d4d871ef9a7d55d10bc
+    home: https://github.com/mammutmedia/stellenportal-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: stellenportal-server
+    sources:
+    - https://github.com/mammutmedia/stellenportal-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.1/stellenportal-server-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/images: |-
+        - name: stellenportal-server
+          image: mammuthosting/stellenportal-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-01-27T18:42:55.155656353Z"
     description: A Helm chart for stellenportal-server.
     digest: bc7d2ab486ce09fe90792424e90f45955c10e587b4d8a1a0568236d6808082a2
@@ -192,4 +213,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-27T18:42:55.155675453Z"
+generated: "2022-01-27T19:07:13.845136677Z"
