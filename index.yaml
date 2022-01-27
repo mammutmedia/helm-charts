@@ -170,4 +170,26 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
-generated: "2022-01-11T20:29:49.252430908Z"
+  stellenportal-server:
+  - annotations:
+      artifacthub.io/images: |-
+        - name: stellenportal-server
+          image: mammuthosting/stellenportal-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-01-27T18:42:55.155656353Z"
+    description: A Helm chart for stellenportal-server.
+    digest: bc7d2ab486ce09fe90792424e90f45955c10e587b4d8a1a0568236d6808082a2
+    home: https://github.com/mammutmedia/stellenportal-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: stellenportal-server
+    sources:
+    - https://github.com/mammutmedia/stellenportal-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-01-27T18:42:55.155675453Z"
