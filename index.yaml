@@ -121,6 +121,32 @@ entries:
   - annotations:
       artifacthub.io/images: |
         - name: parse-dashboard
+          image: mammuthosting/parse-dashboard:4.0.0
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |-
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 4.0.0
+    created: "2022-02-07T08:19:34.364753045Z"
+    description: A Helm chart for parse-dashboard
+    digest: e1ef7396f38ebd7181a5450dbf27ff8076159bde405ccd24b3a097dba8aa995e
+    home: https://github.com/mammutmedia/parse-dashboard
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: parse-dashboard
+    sources:
+    - https://github.com/mammutmedia/parse-dashboard
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-4.0.0/parse-dashboard-4.0.0.tgz
+    version: 4.0.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: parse-dashboard
           image: mammuthosting/parse-dashboard:3.3.0
       artifacthub.io/license: AGPL-3.0-only
       artifacthub.io/links: |-
@@ -224,4 +250,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-07T07:30:49.577304373Z"
+generated: "2022-02-07T08:19:34.364874647Z"
