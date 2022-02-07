@@ -64,16 +64,9 @@ spec:
             successThreshold: 1
             failureThreshold: 5
           volumeMounts:
-            - mountPath: "/var/coronaschnell/"
+            - mountPath: "/usr/src/app/cwa-certs/"
               name: {{ .Values.cwa.secretName }}
               readOnly: true
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - cp /var/coronaschnell/cwa.* /usr/src/app/cwa-certs/
       volumes:
         - name: {{ .Values.cwa.secretName }}
           secret:
