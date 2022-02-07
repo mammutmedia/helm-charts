@@ -170,6 +170,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
+  remscheidapp-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-02-07T07:30:49.577278472Z"
+    description: A Helm chart for Kubernetes
+    digest: 3ced29ec77339f3bd4bb659451fe759d82747ababbd4e37041d58cc0c59b0073
+    name: remscheidapp-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/remscheidapp-server-1.0.0/remscheidapp-server-1.0.0.tgz
+    version: 1.0.0
   stellenportal-server:
   - annotations:
       artifacthub.io/images: |-
@@ -213,4 +224,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-01-27T19:07:13.845136677Z"
+generated: "2022-02-07T07:30:49.577304373Z"
