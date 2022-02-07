@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  deepwood-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-02-07T18:06:48.211852261Z"
+    description: A Helm chart for Kubernetes
+    digest: e66836e9174a9b2c4c630f4e4dde4bc2e2a0b3f5278bf35c6b4e99a1d82d72fc
+    name: deepwood-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/deepwood-server-1.0.0/deepwood-server-1.0.0.tgz
+    version: 1.0.0
   e4f-server:
   - annotations:
       artifacthub.io/images: |
@@ -250,4 +261,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-07T08:19:34.364874647Z"
+generated: "2022-02-07T18:06:48.211867261Z"
