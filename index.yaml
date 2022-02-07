@@ -3,6 +3,16 @@ entries:
   coronaschnell-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-02-07T22:40:49.839983454Z"
+    description: A Helm chart for Kubernetes
+    digest: c4cb7766b857b50648ac35bbc27776e8d7064bc4ded8e7771ee72e5025ae888d
+    name: coronaschnell-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/coronaschnell-server-1.0.2/coronaschnell-server-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-02-07T21:35:48.106332032Z"
     description: A Helm chart for Kubernetes
     digest: 43d06a04f4537c8cf755fea8e310fafa45e757702e32aeeecf52006e6acb0c6a
@@ -282,4 +292,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-07T21:35:48.106403733Z"
+generated: "2022-02-07T22:40:49.840010355Z"
