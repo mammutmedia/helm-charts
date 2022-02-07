@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "remscheidapp-server.fullname" . }}-test-connection"
+  labels:
+    {{- include "remscheidapp-server.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "remscheidapp-server.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
