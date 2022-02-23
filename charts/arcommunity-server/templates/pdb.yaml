@@ -1,0 +1,14 @@
+---
+{{- if .Values.maxUnavailable }}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "arcommunity-server.fullname" . }}
+  labels:
+    {{- include "arcommunity-server.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "arcommunity-server.selectorLabels" . | nindent 6 }}
+{{- end }}
