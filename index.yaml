@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  arcommunity-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-02-23T16:51:15.537199266Z"
+    description: A Helm chart for Kubernetes
+    digest: 608b93441a2f7a3940dd7878de9beae63e4c3bda181e6e4b7f334d3ebf8ada9f
+    name: arcommunity-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/arcommunity-server-1.0.0/arcommunity-server-1.0.0.tgz
+    version: 1.0.0
   coronaschnell-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -302,4 +313,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-07T23:06:38.685865198Z"
+generated: "2022-02-23T16:51:15.537244166Z"
