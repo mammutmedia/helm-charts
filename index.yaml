@@ -123,6 +123,27 @@ entries:
           image: mammuthosting/myturn-eventbus:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-04-27T13:10:44.336755555Z"
+    description: A Helm chart for myturn-eventbus
+    digest: 262300aebc073f8deff54c93f1a66515e1bd26ac287a33cb7d6b6384c6b44a2c
+    home: https://github.com/mammutmedia/myturn-eventbus
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: myturn-eventbus
+    sources:
+    - https://github.com/mammutmedia/myturn-eventbus
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.0.3/myturn-eventbus-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/images: |-
+        - name: myturn-eventbus
+          image: mammuthosting/myturn-eventbus:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2021-12-07T09:15:01.962809182Z"
     description: A Helm chart for myturn-eventbus
     digest: 89113e5cd71420a685f64bc15039cac42a9490be6ada142a2d59b474ef355782
@@ -313,4 +334,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-23T16:51:15.537244166Z"
+generated: "2022-04-27T13:10:44.337314062Z"
