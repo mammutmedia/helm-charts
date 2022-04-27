@@ -37,7 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 env:
-  secretName: mytun-eventbus-env
+  secretName: myturn-eventbus-env
 
 service:
   type: ClusterIP
