@@ -291,6 +291,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/remscheidapp-server-1.0.0/remscheidapp-server-1.0.0.tgz
     version: 1.0.0
+  rheinkultur-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-04-29T20:00:44.766679947Z"
+    description: A Helm chart for Kubernetes
+    digest: 9aaa5315b8fce219acb6ecb641fe34097453b68e22f30a84207ef89c20f28532
+    name: rheinkultur-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-server-1.0.0/rheinkultur-server-1.0.0.tgz
+    version: 1.0.0
   stellenportal-server:
   - annotations:
       artifacthub.io/images: |-
@@ -334,4 +345,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-27T13:10:44.337314062Z"
+generated: "2022-04-29T20:00:44.766709947Z"
