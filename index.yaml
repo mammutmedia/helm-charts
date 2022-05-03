@@ -280,6 +280,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
+  prinoa-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-05-03T12:12:12.85451083Z"
+    description: A Helm chart for Kubernetes
+    digest: 078e715edb1a2d0b536c1e6bd64cfc3ba6de4fc5004886cdbeb3eae72cb02e15
+    name: prinoa-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/prinoa-server-1.0.0/prinoa-server-1.0.0.tgz
+    version: 1.0.0
   remscheidapp-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -345,4 +356,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-29T20:00:44.766709947Z"
+generated: "2022-05-03T12:12:12.854631031Z"
