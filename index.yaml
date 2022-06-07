@@ -116,6 +116,28 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/e4f-server-0.9.0/e4f-server-0.9.0.tgz
     version: 0.9.0
+  mitreden-server:
+  - annotations:
+      artifacthub.io/images: |
+        - name: mitreden-server
+          image: mammuthosting/mitreden-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-06-07T18:57:50.407551523Z"
+    description: A Helm chart for mitreden-server.
+    digest: 7d43281f0403f4660920986d80a4bef10a3872cbb14fbd15502e2080b605b314
+    home: https://github.com/mammutmedia/mitreden-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: mitreden-server
+    sources:
+    - https://github.com/mammutmedia/mitreden-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/mitreden-server-1.0.1/mitreden-server-1.0.1.tgz
+    version: 1.0.1
   myturn-eventbus:
   - annotations:
       artifacthub.io/images: |-
@@ -356,4 +378,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-05-03T12:12:12.854631031Z"
+generated: "2022-06-07T18:57:50.407639422Z"
