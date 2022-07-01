@@ -1,13 +1,66 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
-  "assignees": ["Mammut-Felix"],
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    ":maintainLockFilesMonthly",
+    "workarounds:mavenCommonsAncientVersion",
+    "workarounds:ignoreSpringCloudNumeric",
+    "workarounds:ignoreWeb3jCoreWithOldReleaseTimestamp",
+    "workarounds:ignoreHttp4sDigestMilestones",
+    "workarounds:typesNodeVersioning",
+    "workarounds:reduceRepologyServerLoad",
+    "workarounds:doNotUpgradeFromAlpineStableToEdge"
+  ],
+  "labels": ["dependencies"],
+  "assigneesFromCodeOwners": true,
+  "postUpdateOptions": ["yarnDedupeFewer"],
+  "schedule": ["before 8am on Monday"],
+  "stabilityDays": 3,
+  "separateMajorMinor": true,
+  "separateMultipleMajor": false,
+  "separateMinorPatch": false,
+  "lockFileMaintenance": {
+    "extends": ["group:all"],
+    "commitMessageAction": "Update"
+  },
   "packageRules": [
     {
-      "description": "Require approval for kindest major and minor updates",
-      "matchPackageNames": ["kindest/node"],
-      "matchUpdateTypes": ["major", "minor"],
-      "dependencyDashboardApproval": true
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["^eslint"],
+      "groupName": "eslint packages"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "extends": "monorepo:semantic-release",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "semantic-release monorepo"
+    },
+    {
+      "matchDepTypes": ["action"],
+      "pinDigests": true
     }
+  ],
+  "timezone": "Europe/Berlin",
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "automerge": true,
+    "assignees": ["@Mammut-Felix"]
+  },
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    "**/examples/**",
+    "**/__tests__/**",
+    "**/test/**",
+    "**/tests/**",
+    "**/__fixtures__/**"
   ]
 }
