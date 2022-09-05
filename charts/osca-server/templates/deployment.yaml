@@ -1,0 +1,94 @@
+{{- $svcPort := .Values.service.port -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "osca-server.fullname" . }}
+  labels:
+    {{- include "osca-server.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "osca-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "osca-server.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "osca-server.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.env.secretName }}
+          env:
+            - name: PORT
+              value: "{{ .Values.service.port | default 1337 }}"
+          ports:
+            - containerPort: {{ .Values.service.port | default 1337 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.port | default 1337 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.port | default 1337 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          {{- if .Values.pushCert.enabled }}
+          volumeMounts:
+            - mountPath: "/var/osca/"
+              name: {{ .Values.pushCert.secretName }}
+              readOnly: true
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - cp /var/osca/ios_push_key.p8 /usr/src/app/ios_push_key.p8
+      volumes:
+        - name: {{ .Values.pushCert.secretName }}
+          secret:
+            secretName: {{ .Values.pushCert.secretName }}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
