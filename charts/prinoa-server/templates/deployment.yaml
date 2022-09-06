@@ -50,8 +50,8 @@ spec:
               path: /healthz
               port: {{ .Values.service.port | default 1337 }}
             initialDelaySeconds: 10
-            timeoutSeconds: 30
-            periodSeconds: 10
+            timeoutSeconds: 15
+            periodSeconds: 8
             successThreshold: 1
             failureThreshold: 3
           livenessProbe:
@@ -59,8 +59,8 @@ spec:
               path: /healthz
               port: {{ .Values.service.port | default 1337 }}
             initialDelaySeconds: 10
-            timeoutSeconds: 30
-            periodSeconds: 10
+            timeoutSeconds: 120
+            periodSeconds: 60
             successThreshold: 1
             failureThreshold: 5
       {{- with .Values.nodeSelector }}
