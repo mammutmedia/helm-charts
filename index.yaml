@@ -316,6 +316,16 @@ entries:
   prinoa-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-09-06T21:00:53.034744423Z"
+    description: A Helm chart for Kubernetes
+    digest: 79f9bb38e13257ab9b0cb7bed4e9ddec10fb3cc39bac3e077fbcf41c6224e40c
+    name: prinoa-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/prinoa-server-1.0.1/prinoa-server-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-05-03T12:12:12.85451083Z"
     description: A Helm chart for Kubernetes
     digest: 078e715edb1a2d0b536c1e6bd64cfc3ba6de4fc5004886cdbeb3eae72cb02e15
@@ -389,4 +399,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-09-05T20:48:57.280232428Z"
+generated: "2022-09-06T21:00:53.034783023Z"
