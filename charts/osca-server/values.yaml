@@ -80,15 +80,45 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 metrics:
-  serviceAnnotations: {}
-  serviceMonitor: false
-  serviceMonitorLabels: {}
-  port: 8443
-  proxy:
-    enabled: true
-    image:
-      repository: quay.io/brancz/kube-rbac-proxy
-      tag: v0.13.0
+  port: 10254
+    # if this port is changed, change healthz-port: in extraArgs: accordingly
+  enabled: false
+
+  service:
+    annotations: {}
+    # prometheus.io/scrape: "true"
+    # prometheus.io/port: "10254"
+
+    # clusterIP: ""
+
+    # -- List of IP addresses at which the stats-exporter service is available
+    ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
+    ##
+    externalIPs: []
+
+    # loadBalancerIP: ""
+    loadBalancerSourceRanges: []
+    servicePort: 10254
+    type: ClusterIP
+    # externalTrafficPolicy: ""
+    # nodePort: ""
+
+  serviceMonitor:
+    enabled: false
+    additionalLabels: {}
+    ## The label to use to retrieve the job name from.
+    ## jobLabel: "app.kubernetes.io/name"
+    namespace: ''
+    namespaceSelector: {}
+    ## Default: scrape .Release.Namespace only
+    ## To scrape all, use the following:
+    ## namespaceSelector:
+    ##   any: true
+    scrapeInterval: 30s
+    # honorLabels: true
+    targetLabels: []
+    relabelings: []
+    metricRelabelings: []
 
 env:
   secretName: osca-server-env

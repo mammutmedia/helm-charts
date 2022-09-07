@@ -60,11 +60,3 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
-{{- define "osca-server.serviceMonitorName" -}}
-{{- include "osca-server.fullname" . | trunc 47 }}-service-monitor
-{{- end }}
-
-{{- define "osca-server.metricsServiceName" -}}
-{{- include "osca-server.fullname" . | trunc 47 }}-metrics-service
-{{- end }}
