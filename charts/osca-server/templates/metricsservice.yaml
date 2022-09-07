@@ -31,7 +31,7 @@ spec:
   externalTrafficPolicy: {{ .Values.metrics.service.externalTrafficPolicy }}
 {{- end }}
   ports:
-    - name: http-metrics
+    - name: parse-metrics
       port: {{ .Values.metrics.service.servicePort }}
       protocol: TCP
       targetPort: http-metrics

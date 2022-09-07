@@ -80,7 +80,8 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 metrics:
-  port: 10254
+  port:
+    1337
     # if this port is changed, change healthz-port: in extraArgs: accordingly
   enabled: false
 
@@ -98,7 +99,7 @@ metrics:
 
     # loadBalancerIP: ""
     loadBalancerSourceRanges: []
-    servicePort: 10254
+    servicePort: 1337
     type: ClusterIP
     # externalTrafficPolicy: ""
     # nodePort: ""
