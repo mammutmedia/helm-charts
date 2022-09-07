@@ -14,7 +14,7 @@ metadata:
   {{- end }}
 spec:
   endpoints:
-    - port: http-metrics
+    - port: parse-metrics
       interval: {{ .Values.metrics.serviceMonitor.scrapeInterval }}
     {{- if .Values.metrics.serviceMonitor.honorLabels }}
       honorLabels: true
