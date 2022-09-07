@@ -80,6 +80,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 metrics:
+  serviceAnnotations: {}
   serviceMonitor: false
   serviceMonitorLabels: {}
   proxy:
