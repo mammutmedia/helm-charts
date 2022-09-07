@@ -83,6 +83,7 @@ metrics:
   serviceAnnotations: {}
   serviceMonitor: false
   serviceMonitorLabels: {}
+  port: 8443
   proxy:
     enabled: true
     image:

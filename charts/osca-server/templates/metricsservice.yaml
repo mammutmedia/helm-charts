@@ -4,7 +4,7 @@ metadata:
   labels:
     {{- include "osca-server.labels" . | nindent 4 }}
   name: {{ include "osca-server.metricsServiceName" . }}
-  namespace: {{ .Release.Namespace }}
+  namespace: "metrics"
   {{- with .Values.metrics.serviceAnnotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -14,5 +14,8 @@ spec:
   - name: metrics-port
     port: {{ .Values.metrics.port }}
     targetPort: metrics-port
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
   selector:
     {{- include "osca-server.selectorLabels" . | nindent 4 }}
