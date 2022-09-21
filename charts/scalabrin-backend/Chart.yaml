@@ -1,0 +1,17 @@
+apiVersion: v2
+appVersion: '1.0.0'
+description: A Helm chart for scalabrin-backend
+name: scalabrin-backend
+version: '1.0.3'
+home: https://github.com/mammutmedia/scalabrin-backend
+sources:
+  - https://github.com/mammutmedia/scalabrin-backend
+  - https://github.com/mammutmedia/helm-charts
+maintainers:
+  - name: Felix Nithammer
+    email: f.nithammer@mammutmedia.eu
+    url: https://mammutmedia.eu
+annotations:
+  artifacthub.io/images: |
+    - name: scalabrin-backend
+      image: mammuthosting/scalabrin-backend:1.0.0

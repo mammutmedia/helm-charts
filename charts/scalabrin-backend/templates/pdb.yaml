@@ -1,0 +1,14 @@
+---
+{{- if .Values.maxUnavailable }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "scalabrin-backend.fullname" . }}
+  labels:
+    {{- include "scalabrin-backend.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "scalabrin-backend.selectorLabels" . | nindent 6 }}
+{{- end }}
