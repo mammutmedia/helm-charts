@@ -416,6 +416,28 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-server-1.0.0/rheinkultur-server-1.0.0.tgz
     version: 1.0.0
+  scalabrin-backend:
+  - annotations:
+      artifacthub.io/images: |
+        - name: scalabrin-backend
+          image: mammuthosting/scalabrin-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-09-21T06:35:19.934451246Z"
+    description: A Helm chart for scalabrin-backend
+    digest: 8b5d47509a7ebe234f4868ff6593ce37b630281e9abfc6766cf01ae6a3efe713
+    home: https://github.com/mammutmedia/scalabrin-backend
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: scalabrin-backend
+    sources:
+    - https://github.com/mammutmedia/scalabrin-backend
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/scalabrin-backend-1.0.3/scalabrin-backend-1.0.3.tgz
+    version: 1.0.3
   stellenportal-server:
   - annotations:
       artifacthub.io/images: |-
@@ -459,4 +481,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-09-07T14:06:19.585996999Z"
+generated: "2022-09-21T06:35:19.934496647Z"
