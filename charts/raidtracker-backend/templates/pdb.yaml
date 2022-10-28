@@ -1,0 +1,14 @@
+---
+{{- if .Values.maxUnavailable }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "raidtracker-backend.fullname" . }}
+  labels:
+    {{- include "raidtracker-backend.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "raidtracker-backend.selectorLabels" . | nindent 6 }}
+{{- end }}
