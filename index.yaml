@@ -394,6 +394,27 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/prinoa-server-1.0.0/prinoa-server-1.0.0.tgz
     version: 1.0.0
+  raidtracker-backend:
+  - annotations:
+      artifacthub.io/images: |
+        - name: raidtracker-backend
+          image: mammuthosting/raidtracker-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-10-28T17:23:13.207479968Z"
+    description: A Helm chart for raidtracker-backend
+    digest: 666b73b6008847e22cab020baaa70a7e424bc0e22fd9edc7089d9a7279073fc2
+    home: https://github.com/mammutmedia/helm-charts
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: raidtracker-backend
+    sources:
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/raidtracker-backend-1.0.3/raidtracker-backend-1.0.3.tgz
+    version: 1.0.3
   remscheidapp-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -481,4 +502,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-09-21T06:35:19.934496647Z"
+generated: "2022-10-28T17:23:13.207525968Z"
