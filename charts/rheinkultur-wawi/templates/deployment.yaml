@@ -77,7 +77,7 @@ spec:
       volumes:
         - name: {{ .Values.googlekey.secretName }}
           secret:
-            secretName: {{ .Values.pushCert.secretName }}
+            secretName: {{ .Values.googlekey.secretName }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
