@@ -437,6 +437,28 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-server-1.0.0/rheinkultur-server-1.0.0.tgz
     version: 1.0.0
+  rheinkultur-wawi:
+  - annotations:
+      artifacthub.io/images: |
+        - name: rheinkultur-wawi
+          image: mammuthosting/rheinkultur-wawi:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-11-29T10:40:40.31005342Z"
+    description: A Helm chart for rheinkultur-wawi.
+    digest: 8e2b5f092661b04182b9749a608e777dc085b9c28f05dd22780844a0ec4b4b6d
+    home: https://github.com/mammutmedia/rheinkultur-wawi-parse
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: rheinkultur-wawi
+    sources:
+    - https://github.com/mammutmedia/rheinkultur-wawi-parse
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-wawi-1.0.0/rheinkultur-wawi-1.0.0.tgz
+    version: 1.0.0
   scalabrin-backend:
   - annotations:
       artifacthub.io/images: |
@@ -502,4 +524,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-28T17:23:13.207525968Z"
+generated: "2022-11-29T10:40:40.31010152Z"
