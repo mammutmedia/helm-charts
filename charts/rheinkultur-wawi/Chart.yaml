@@ -1,0 +1,17 @@
+apiVersion: v2
+appVersion: '1.0.0'
+description: A Helm chart for rheinkultur-wawi.
+name: rheinkultur-wawi
+version: '1.0.0'
+home: https://github.com/mammutmedia/rheinkultur-wawi-parse
+sources:
+  - https://github.com/mammutmedia/rheinkultur-wawi-parse
+  - https://github.com/mammutmedia/helm-charts
+maintainers:
+  - name: Felix Nithammer
+    email: f.nithammer@mammutmedia.eu
+    url: https://mammutmedia.eu
+annotations:
+  artifacthub.io/images: |
+    - name: rheinkultur-wawi
+      image: mammuthosting/rheinkultur-wawi:1.0.0
