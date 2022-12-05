@@ -566,4 +566,15 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.0/stellenportal-server-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-29T15:16:19.61362044Z"
+  xerleben:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-12-05T14:53:54.9880857Z"
+    description: A Helm chart for Kubernetes
+    digest: 779911543034232537a58b898675904890673699f5413d662d8403d69b4a9882
+    name: xerleben
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-12-05T14:53:54.988130001Z"
