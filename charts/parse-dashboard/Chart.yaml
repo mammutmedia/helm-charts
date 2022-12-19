@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: '4.0.0'
+appVersion: '5.0.0'
 description: A Helm chart for parse-dashboard
 name: parse-dashboard
-version: '4.0.0'
+version: '4.0.1'
 icon: https://docs.renovatebot.com/assets/images/logo.png
 home: https://github.com/mammutmedia/parse-dashboard
 sources:
