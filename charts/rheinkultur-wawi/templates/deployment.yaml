@@ -47,7 +47,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: /parse/health
               port: {{ .Values.service.port | default 1337 }}
             initialDelaySeconds: 10
             timeoutSeconds: 30
@@ -56,7 +56,7 @@ spec:
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /parse/health
               port: {{ .Values.service.port | default 1337 }}
             initialDelaySeconds: 10
             timeoutSeconds: 30
