@@ -470,6 +470,27 @@ entries:
           image: mammuthosting/rheinkultur-wawi:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-12-26T22:46:06.207396539Z"
+    description: A Helm chart for rheinkultur-wawi.
+    digest: 3bc002d8aa9e28608c01d60e37b0bb22cc355624cafa46ed181e7a797294597a
+    home: https://github.com/mammutmedia/rheinkultur-wawi-parse
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: rheinkultur-wawi
+    sources:
+    - https://github.com/mammutmedia/rheinkultur-wawi-parse
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-wawi-1.0.3/rheinkultur-wawi-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/images: |
+        - name: rheinkultur-wawi
+          image: mammuthosting/rheinkultur-wawi:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-11-29T15:16:19.61357554Z"
     description: A Helm chart for rheinkultur-wawi.
     digest: 30bdc0fcefd5926e1f5fa6cb8da4cfb00b8c51bb053b421607c9eec4c5abdd88
@@ -603,4 +624,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-19T14:40:39.623805954Z"
+generated: "2022-12-26T22:46:06.207817849Z"
