@@ -1,0 +1,21 @@
+apiVersion: v2
+name: parse-server
+description: A Helm chart for mammut media parse-server-template
+version: 1.0.0
+appVersion: 1.0.0
+kubeVersion: '>=1.16.0-0'
+keywords:
+  - parse-server
+  - parse-server-template
+  - mammut-media
+  - mammutmedia
+home: https://mammutmedia.eu/
+sources:
+  - https://github.com/mammutmedia/helm-charts
+  - https://github.com/mammutmedia/parse-server-template
+maintainers:
+  - name: Felix Nithammer
+    email: f.nithammer@mammutmedia.eu
+annotations:
+  artifacthub.io/changes: |
+    - "✨ initial release"
