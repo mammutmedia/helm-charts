@@ -399,6 +399,32 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-1.0.1/parse-dashboard-1.0.1.tgz
     version: 1.0.1
+  parse-server:
+  - annotations:
+      artifacthub.io/changes: |
+        - "✨ initial release"
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-01-20T15:35:04.496783898Z"
+    description: A Helm chart for mammut media parse-server-template
+    digest: bc088e3485fab9a073a7a23ff3cff2065a34a6b56e5a3bd4eb9d12d39aab4939
+    home: https://mammutmedia.eu/
+    keywords:
+    - parse-server
+    - parse-server-template
+    - mammut-media
+    - mammutmedia
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+    name: parse-server
+    sources:
+    - https://github.com/mammutmedia/helm-charts
+    - https://github.com/mammutmedia/parse-server-template
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-server-1.0.0/parse-server-1.0.0.tgz
+    version: 1.0.0
   prinoa-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -624,4 +650,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-26T22:46:06.207817849Z"
+generated: "2023-01-20T15:35:04.496841499Z"
