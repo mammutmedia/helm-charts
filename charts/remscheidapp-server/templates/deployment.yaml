@@ -70,14 +70,14 @@ spec:
               readOnly: true
             {{- end }}
             - mountPath: "/usr/src/app/tmp"
-              name: tmpDir
+              name: tmpdir
       volumes:
         {{- if .Values.pushCert.enabled }}
         - name: {{ .Values.pushCert.secretName }}
           secret:
             secretName: {{ .Values.pushCert.secretName }}
         {{- end }}
-        - name: tmpDir
+        - name: tmpdir
           emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
