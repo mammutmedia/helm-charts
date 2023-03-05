@@ -63,8 +63,9 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
-          {{- if .Values.pushCert.enabled }}
+
           volumeMounts:
+          {{- if .Values.pushCert.enabled }}
             - mountPath: "/var/remscheidapp/"
               name: {{ .Values.pushCert.secretName }}
               readOnly: true
@@ -75,11 +76,17 @@ spec:
                   - /bin/sh
                   - -c
                   - cp /var/remscheidapp/ios_push_key.p8 /usr/src/app/ios_push_key.p8
+          {{- end }}
+            - mountPath: "/usr/src/app/tmp"
+              name: tmpDir
       volumes:
+        {{- if .Values.pushCert.enabled }}
         - name: {{ .Values.pushCert.secretName }}
           secret:
             secretName: {{ .Values.pushCert.secretName }}
-          {{- end }}
+        {{- end }}
+        - name: tmpDir
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
