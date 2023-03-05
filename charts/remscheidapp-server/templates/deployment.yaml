@@ -63,20 +63,12 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
-
           volumeMounts:
-          {{- if .Values.pushCert.enabled }}
-            - mountPath: "/var/remscheidapp/"
+            {{- if .Values.pushCert.enabled }}
+            - mountPath: "/usr/src/app/secrets"
               name: {{ .Values.pushCert.secretName }}
               readOnly: true
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - cp /var/remscheidapp/ios_push_key.p8 /usr/src/app/ios_push_key.p8
-          {{- end }}
+            {{- end }}
             - mountPath: "/usr/src/app/tmp"
               name: tmpDir
       volumes:
