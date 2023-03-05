@@ -470,6 +470,16 @@ entries:
   remscheidapp-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-03-05T12:42:35.498938564Z"
+    description: A Helm chart for Kubernetes
+    digest: cbbb2314eda260c037d2f2b3e02784ae84419235db3831c19a90c7259fbb7bf5
+    name: remscheidapp-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/remscheidapp-server-1.0.3/remscheidapp-server-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-03-05T12:30:05.910020081Z"
     description: A Helm chart for Kubernetes
     digest: fd0529ebe792684cfe4a98daa78f82d8731aa6614d47c27b70e54fef73f218cb
@@ -670,4 +680,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-03-05T12:30:05.910082481Z"
+generated: "2023-03-05T12:42:35.499001864Z"
