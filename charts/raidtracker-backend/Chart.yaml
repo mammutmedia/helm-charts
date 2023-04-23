@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: '1.0.0'
 description: A Helm chart for raidtracker-backend
 name: raidtracker-backend
-version: '1.0.3'
+version: '1.0.4'
 home: https://github.com/mammutmedia/helm-charts
 sources:
   - https://github.com/mammutmedia/helm-charts

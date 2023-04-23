@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: '1.0.0'
 description: A Helm chart for stellenportal-server.
 name: stellenportal-server
-version: '1.0.1'
+version: '1.0.2'
 home: https://github.com/mammutmedia/stellenportal-server
 sources:
   - https://github.com/mammutmedia/stellenportal-server
