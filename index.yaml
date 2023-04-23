@@ -3,6 +3,16 @@ entries:
   arcommunity-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:07.248378542Z"
+    description: A Helm chart for Kubernetes
+    digest: 2546f8a1ce23b924e0d142e86aaf08ea3df4b4616486cc0692de778067ab3aef
+    name: arcommunity-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/arcommunity-server-1.0.1/arcommunity-server-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-02-23T16:51:15.537199266Z"
     description: A Helm chart for Kubernetes
     digest: 608b93441a2f7a3940dd7878de9beae63e4c3bda181e6e4b7f334d3ebf8ada9f
@@ -12,6 +22,16 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/arcommunity-server-1.0.0/arcommunity-server-1.0.0.tgz
     version: 1.0.0
   coronaschnell-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:07.464585377Z"
+    description: A Helm chart for Kubernetes
+    digest: 7bff40ce721cce83e8583c8038fe1d428be8576e6cdf2c732c76877d85043d26
+    name: coronaschnell-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/coronaschnell-server-1.0.4/coronaschnell-server-1.0.4.tgz
+    version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2022-02-07T23:06:38.685817698Z"
@@ -55,6 +75,16 @@ entries:
   deepwood-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:07.713525615Z"
+    description: A Helm chart for Kubernetes
+    digest: 105cd1b87564311fab73f3152fd7b9b7e86417cd3939525835ae08c41226c073
+    name: deepwood-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/deepwood-server-1.0.1/deepwood-server-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-02-07T18:06:48.211852261Z"
     description: A Helm chart for Kubernetes
     digest: e66836e9174a9b2c4c630f4e4dde4bc2e2a0b3f5278bf35c6b4e99a1d82d72fc
@@ -64,6 +94,32 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/deepwood-server-1.0.0/deepwood-server-1.0.0.tgz
     version: 1.0.0
   e4f-server:
+  - annotations:
+      artifacthub.io/images: |
+        - name: e4f-server
+          image: mammuthosting/e4f-server:0.9.0
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 0.9.0
+    created: "2023-04-23T10:02:07.927302435Z"
+    description: A Helm chart for e4f-server
+    digest: 68220bb4bb24346e68c9a47828e5d2828ceb598bf8232614a1ce1ae347aafa51
+    home: https://github.com/mammutmedia/e4f-server
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: e4f-server
+    sources:
+    - https://github.com/mammutmedia/e4f-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/e4f-server-0.9.2/e4f-server-0.9.2.tgz
+    version: 0.9.2
   - annotations:
       artifacthub.io/images: |
         - name: e4f-server
@@ -123,6 +179,27 @@ entries:
           image: mammuthosting/mitreden-server:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:08.121860837Z"
+    description: A Helm chart for mitreden-server.
+    digest: 341bb3b7e93a93e7de15eb79b1aade831a3f367b15092aa45577016ad30d734c
+    home: https://github.com/mammutmedia/mitreden-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: mitreden-server
+    sources:
+    - https://github.com/mammutmedia/mitreden-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/mitreden-server-1.0.2/mitreden-server-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/images: |
+        - name: mitreden-server
+          image: mammuthosting/mitreden-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-06-07T18:57:50.407551523Z"
     description: A Helm chart for mitreden-server.
     digest: 7d43281f0403f4660920986d80a4bef10a3872cbb14fbd15502e2080b605b314
@@ -139,6 +216,27 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/mitreden-server-1.0.1/mitreden-server-1.0.1.tgz
     version: 1.0.1
   myturn-eventbus:
+  - annotations:
+      artifacthub.io/images: |
+        - name: myturn-eventbus
+          image: mammuthosting/myturn-eventbus:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:08.296495416Z"
+    description: A Helm chart for myturn-eventbus
+    digest: f30ad71c8a21ab68d631a02b8026520e7d339768f55762a71ae9e9a9a51bb2e4
+    home: https://github.com/mammutmedia/myturn-eventbus
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: myturn-eventbus
+    sources:
+    - https://github.com/mammutmedia/myturn-eventbus
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.0.4/myturn-eventbus-1.0.4.tgz
+    version: 1.0.4
   - annotations:
       artifacthub.io/images: |-
         - name: myturn-eventbus
@@ -226,6 +324,16 @@ entries:
   osca-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:08.587524613Z"
+    description: A Helm chart for Kubernetes
+    digest: d075e321a7165c91d1173f7a487f672732e496228badd3b95631c590441028c2
+    name: osca-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/osca-server-1.1.6/osca-server-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-09-07T14:06:19.585941498Z"
     description: A Helm chart for Kubernetes
     digest: 8c6d34e0abb544b83d3c304ae8867da9f1aafc81a4b51e1d352fb9de1e3c9fd7
@@ -295,6 +403,32 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/osca-server-1.0.0/osca-server-1.0.0.tgz
     version: 1.0.0
   parse-dashboard:
+  - annotations:
+      artifacthub.io/images: |
+        - name: parse-dashboard
+          image: mammuthosting/parse-dashboard:4.0.0
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 5.0.0
+    created: "2023-04-23T10:02:08.812637804Z"
+    description: A Helm chart for parse-dashboard
+    digest: 5eaa765c9d279a996c632f356beaa4cd01c9fddfa9bff29f7a9bc3d3cb8903e5
+    home: https://github.com/mammutmedia/parse-dashboard
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: parse-dashboard
+    sources:
+    - https://github.com/mammutmedia/parse-dashboard
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-4.0.2/parse-dashboard-4.0.2.tgz
+    version: 4.0.2
   - annotations:
       artifacthub.io/images: |
         - name: parse-dashboard
@@ -405,6 +539,36 @@ entries:
         - "✨ initial release"
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:09.048576761Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.7.3
+    description: A Helm chart for mammut media parse-server-template
+    digest: 650d50d8031ab3a199e4b2d3b4ed2046807919e5c587f3e428bc8f90149b7991
+    home: https://mammutmedia.eu/
+    keywords:
+    - parse-server
+    - parse-server-template
+    - mammut-media
+    - mammutmedia
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+    name: parse-server
+    sources:
+    - https://github.com/mammutmedia/helm-charts
+    - https://github.com/mammutmedia/parse-server-template
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-server-1.0.1/parse-server-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |
+        - "✨ initial release"
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-01-20T15:35:04.496783898Z"
     description: A Helm chart for mammut media parse-server-template
     digest: bc088e3485fab9a073a7a23ff3cff2065a34a6b56e5a3bd4eb9d12d39aab4939
@@ -426,6 +590,16 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/parse-server-1.0.0/parse-server-1.0.0.tgz
     version: 1.0.0
   prinoa-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:09.24747119Z"
+    description: A Helm chart for Kubernetes
+    digest: 80e1921f003509144d287c7b591540611be63d23ffc0ce81253c54ebe07118b4
+    name: prinoa-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/prinoa-server-1.0.2/prinoa-server-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2022-09-06T21:00:53.034744423Z"
@@ -453,6 +627,26 @@ entries:
           image: mammuthosting/raidtracker-backend:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:09.447840027Z"
+    description: A Helm chart for raidtracker-backend
+    digest: f18bec9f4c3e41b9ccbfc9614c58f9aa2f33e781bc4447fb4f4b83c93b38a6d9
+    home: https://github.com/mammutmedia/helm-charts
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: raidtracker-backend
+    sources:
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/raidtracker-backend-1.0.4/raidtracker-backend-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      artifacthub.io/images: |
+        - name: raidtracker-backend
+          image: mammuthosting/raidtracker-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-10-28T17:23:13.207479968Z"
     description: A Helm chart for raidtracker-backend
     digest: 666b73b6008847e22cab020baaa70a7e424bc0e22fd9edc7089d9a7279073fc2
@@ -468,6 +662,16 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/raidtracker-backend-1.0.3/raidtracker-backend-1.0.3.tgz
     version: 1.0.3
   remscheidapp-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:09.671952811Z"
+    description: A Helm chart for Kubernetes
+    digest: 89e1f8f7c6ad95d907f6a4d7dd5d1afa6a09a5e5a063d463ceea34629a238453
+    name: remscheidapp-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/remscheidapp-server-1.0.4/remscheidapp-server-1.0.4.tgz
+    version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2023-03-05T12:42:35.498938564Z"
@@ -511,6 +715,16 @@ entries:
   rheinkultur-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:09.879931196Z"
+    description: A Helm chart for Kubernetes
+    digest: 975313a1e782a9e2eb14449ff0a13f80b45d72dd5cf5eada7b539198161dc968
+    name: rheinkultur-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-server-1.0.1/rheinkultur-server-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-04-29T20:00:44.766679947Z"
     description: A Helm chart for Kubernetes
     digest: 9aaa5315b8fce219acb6ecb641fe34097453b68e22f30a84207ef89c20f28532
@@ -520,6 +734,27 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-server-1.0.0/rheinkultur-server-1.0.0.tgz
     version: 1.0.0
   rheinkultur-wawi:
+  - annotations:
+      artifacthub.io/images: |
+        - name: rheinkultur-wawi
+          image: mammuthosting/rheinkultur-wawi:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:10.076940013Z"
+    description: A Helm chart for rheinkultur-wawi.
+    digest: 0ab579e8cd0d81fe5ce06c996ed4acaa17e690df063d1ef696d79af17505595b
+    home: https://github.com/mammutmedia/rheinkultur-wawi-parse
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: rheinkultur-wawi
+    sources:
+    - https://github.com/mammutmedia/rheinkultur-wawi-parse
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/rheinkultur-wawi-1.0.4/rheinkultur-wawi-1.0.4.tgz
+    version: 1.0.4
   - annotations:
       artifacthub.io/images: |
         - name: rheinkultur-wawi
@@ -611,6 +846,27 @@ entries:
           image: mammuthosting/scalabrin-backend:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:10.286467707Z"
+    description: A Helm chart for scalabrin-backend
+    digest: b836998b1cadd15aaed6999c778c55d2cd962b24b14c53a91a040bd4e9bba4dc
+    home: https://github.com/mammutmedia/scalabrin-backend
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: scalabrin-backend
+    sources:
+    - https://github.com/mammutmedia/scalabrin-backend
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/scalabrin-backend-1.0.4/scalabrin-backend-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      artifacthub.io/images: |
+        - name: scalabrin-backend
+          image: mammuthosting/scalabrin-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-09-21T06:35:19.934451246Z"
     description: A Helm chart for scalabrin-backend
     digest: 8b5d47509a7ebe234f4868ff6593ce37b630281e9abfc6766cf01ae6a3efe713
@@ -627,6 +883,27 @@ entries:
     - https://github.com/mammutmedia/helm-charts/releases/download/scalabrin-backend-1.0.3/scalabrin-backend-1.0.3.tgz
     version: 1.0.3
   stellenportal-server:
+  - annotations:
+      artifacthub.io/images: |
+        - name: stellenportal-server
+          image: mammuthosting/stellenportal-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-04-23T10:02:10.492393979Z"
+    description: A Helm chart for stellenportal-server.
+    digest: 51f30ea7139636762a3572e1be75088a209657701938691adda7219912a261ab
+    home: https://github.com/mammutmedia/stellenportal-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: stellenportal-server
+    sources:
+    - https://github.com/mammutmedia/stellenportal-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/stellenportal-server-1.0.2/stellenportal-server-1.0.2.tgz
+    version: 1.0.2
   - annotations:
       artifacthub.io/images: |-
         - name: stellenportal-server
@@ -672,6 +949,16 @@ entries:
   xerleben:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-04-23T10:02:10.777139238Z"
+    description: A Helm chart for Kubernetes
+    digest: 601530459d2c494f8afd63edec70334eac783a2cd742115c780e3f073f884bd0
+    name: xerleben
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.1/xerleben-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-12-05T14:53:54.9880857Z"
     description: A Helm chart for Kubernetes
     digest: 779911543034232537a58b898675904890673699f5413d662d8403d69b4a9882
@@ -680,4 +967,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-03-05T12:42:35.499001864Z"
+generated: "2023-04-23T10:02:10.77754764Z"
