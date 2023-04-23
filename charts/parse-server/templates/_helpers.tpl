@@ -5,6 +5,27 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{/* Get namespace of the deployment
+*/}}
+{{- define "parse-server.namespace" -}}
+{{- .Release.Namespace }}
+{{- end }}
+
+{{/* Get a comma seperated list of all redis sentinels (add 1 to replicaCount because we start at 0)
+*/}}
+{{- define "parse-server.redisSentinels" -}}
+{{- $repicaCount := .Values.replicaCount }}
+{{- $sentinels := list }}
+{{- range $i, $e := until (int $repicaCount) }}
+{{- $sentinels = append $sentinels (printf "%s-%d.%s.%s.svc.cluster.local:26379" (include "parse-server.fullname" $) $i (include "parse-server.namespace" $) (include "parse-server.namespace" $)) }}
+{{- end }}
+{{- $sentinels | join "," }}
+{{- end }}
+
+
+{{/*
+*/}}
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).

@@ -13,6 +13,9 @@ spec:
     matchLabels:
       {{- include "parse-server.selectorLabels" . | nindent 6 }}
       app.kubernetes.io/component: server
+  {{- if .Values.updateStrategy }}
+  strategy: {{- toYaml .Values.updateStrategy | nindent 4 }}
+  {{- end }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -36,48 +39,49 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.env.existingSecret }}
           envFrom:
             - secretRef:
-                name: {{ .Values.env.secretName }}
+                name: {{ .Values.env.existingSecret }}
           env:
             - name: PORT
               value: "{{ .Values.service.port }}"
+            {{- if .Values.redis.enabled }}
+            {{- if .Values.redis.sentinel.enabled }}
+            - name: REDIS_MODE
+              value: "sentinel"
+            - name: REDIS_MASTER_NAME
+              value: "{{ .Values.redis.sentinel.masterSet }}"
+            - name: REDIS_NODES
+              value: "{{ include "parse-server.redisSentinels" . }}"
+            {{- else }}
+            - name: REDIS_MODE
+              value: "standalone"
+            - name: REDIS_HOST
+              value: "{{ include "parse-server.fullname" . }}-redis"
+            {{- end }}
+            - name: REDIS_PORT
+              value: {{- if .Values.redis.sentinel.enabled }} "26379" {{- else }} "6379" {{- end }}
+            {{- end }}
+            {{- else if .Values.env.values }}
+            {{- toYaml .Values.env.values | nindent 12 }}
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           readinessProbe:
-            httpGet:
-              path: /healthz
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: 120
-            periodSeconds: 10
-            timeoutSeconds: 5
-            successThreshold: 1
-            failureThreshold: 5
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           livenessProbe:
-            httpGet:
-              path: /healthz
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 5
-            successThreshold: 1
-            failureThreshold: 5
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           startupProbe:
-            tcpSocket:
-              port: http
-            initialDelaySeconds: 0
-            periodSeconds: 3
-            timeoutSeconds: 1
-            successThreshold: 1
-            failureThreshold: 15
+            {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.pushCert.enabled }}
           volumeMounts:
             - mountPath: "/var/parse-server/"
-              name: {{ .Values.pushCert.secretName }}
+              name: push-certificate
               readOnly: true
           lifecycle:
             postStart:
@@ -87,9 +91,9 @@ spec:
                   - -c
                   - cp /var/parse-server/ios_push_key.p8 /usr/src/app/ios_push_key.p8
       volumes:
-        - name: {{ .Values.pushCert.secretName }}
+        - name: push-certificate
           secret:
-            secretName: {{ .Values.pushCert.secretName }}
+            secretName: {{ .Values.pushCert.existingSecret }}
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

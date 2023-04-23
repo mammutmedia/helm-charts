@@ -8,7 +8,7 @@ image:
   repository: parseplatform/parse-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: '5.4.0'
+  tag: '6.0.0'
 
 imagePullSecrets: []
 nameOverride: ''
@@ -87,12 +87,21 @@ podDisruptionBudget:
   # minAvailable: 0
   # minAvailable: 25%
 
-# env:
-#   secretName: parse-server-env
+env:
+  existingSecret: parse-server-env
+  values:
+    - name: PARSE_SERVER_APPLICATION_ID
+      value: 'myAppId'
 
 pushCert:
   enabled: false
-  # secretName: parse-server-push-cert
+  existingSecret: parse-server-push-cert
+
+updateStrategy:
+  ## StrategyType
+  ## Can be set to RollingUpdate or OnDelete
+  ##
+  type: RollingUpdate
 
 # Metrics
 metrics:
@@ -139,8 +148,109 @@ metrics:
   # namespace: "another-namespace"
   # namespaceSelector: {}
 
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 1337
+  initialDelaySeconds: 120
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 1337
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+startupProbe:
+  tcpSocket:
+    port: 1337
+  initialDelaySeconds: 0
+  periodSeconds: 3
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 15
+
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+redis:
+  enabled: false
+
+  auth:
+    sentinel: false
+    password: ''
+
+  sentinel:
+    enabled: true
+    automateClusterRecovery: true
+    downAfterMilliseconds: 1000
+    failoverTimeout: 2000
+    masterSet: 'mymaster'
+
+  commonConfiguration: |-
+    tcp-keepalive 0
+
+    save 900 1
+    save 300 10
+    save 60 10000
+
+    rdbcompression no
+    rdbchecksum no
+
+    appendonly no
+
+    maxmemory 4gb
+    maxmemory-policy allkeys-lru
+    loglevel notice
+    timeout 300
+
+  master:
+    disableCommands:
+      - FLUSHALL
+
+    initContainers:
+      - name: setsysctl
+        image: busybox
+        securityContext:
+          privileged: true
+        command:
+          - sh
+          - -c
+          - |
+            sysctl -w net.core.somaxconn=65535
+            sysctl -w vm.overcommit_memory=1
+
+  replica:
+    replicaCount: 2
+
+    disableCommands:
+      - FLUSHALL
+
+    initContainers:
+      - name: setsysctl
+        image: busybox
+        securityContext:
+          privileged: true
+        command:
+          - sh
+          - -c
+          - |
+            sysctl -w net.core.somaxconn=65535
+            sysctl -w vm.overcommit_memory=1
+
+  pdb:
+    create: true
+
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: metrics
