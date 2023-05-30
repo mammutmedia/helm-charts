@@ -80,12 +80,13 @@ spec:
                 command:
                   - /bin/sh
                   - -c
-                  {{- if .Values.pushCert.enabled }}
-                  - cp /var/osca/push_cert/ios_push_key.p8 /usr/src/app/ios_push_key.p8
-                  {{- end }}
-                  {{- if .Values.googleServiceAccount.enabled }}
-                  - cp /var/osca/google_service/google_service.json /usr/src/app/google_service.json
-                  {{- end }}
+                  - >
+                    if [ -f "/var/osca/push_cert/ios_push_key.p8" ]; then
+                      cp /var/osca/push_cert/ios_push_key.p8 /usr/src/app/ios_push_key.p8;
+                    fi;
+                    if [ -f "/var/osca/google_service/google_service.json" ]; then
+                      cp /var/osca/google_service/google_service.json /usr/src/app/google_service.json;
+                    fi;
       volumes:
       {{- if .Values.pushCert.enabled }}
         - name: {{ .Values.pushCert.secretName }}
