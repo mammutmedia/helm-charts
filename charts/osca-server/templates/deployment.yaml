@@ -63,23 +63,40 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
-          {{- if .Values.pushCert.enabled }}
           volumeMounts:
-            - mountPath: "/var/osca/"
+          {{- if .Values.pushCert.enabled }}
+            - mountPath: "/var/osca/push_cert"
               name: {{ .Values.pushCert.secretName }}
               readOnly: true
+          {{- end }}
+          {{- if .Values.googleServiceaccount.enabled }}
+            - mountPath: "/var/osca/google_service"
+              name: {{ .Values.googleServiceaccount.secretName }}
+              readOnly: true
+          {{- end }}
           lifecycle:
             postStart:
               exec:
                 command:
                   - /bin/sh
                   - -c
-                  - cp /var/osca/ios_push_key.p8 /usr/src/app/ios_push_key.p8
+                  {{- if .Values.pushCert.enabled }}
+                  - cp /var/osca/push_cert/ios_push_key.p8 /usr/src/app/ios_push_key.p8
+                  {{- end }}
+                  {{- if .Values.googleServiceaccount.enabled }}
+                  - cp /var/osca/push_cert/google_service.json /usr/src/app/google_service.json
+                  {{- end }}
       volumes:
+      {{- if .Values.pushCert.enabled }}
         - name: {{ .Values.pushCert.secretName }}
           secret:
             secretName: {{ .Values.pushCert.secretName }}
-          {{- end }}
+      {{- end }}
+      {{- if .Values.googleServiceaccount.enabled }}
+        - name: {{ .Values.googleServiceaccount.secretName }}
+          secret:
+            secretName: {{ .Values.googleServiceaccount.secretName }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
