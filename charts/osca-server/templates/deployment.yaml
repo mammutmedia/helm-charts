@@ -69,9 +69,9 @@ spec:
               name: {{ .Values.pushCert.secretName }}
               readOnly: true
           {{- end }}
-          {{- if .Values.googleServiceaccount.enabled }}
+          {{- if .Values.googleServiceAccount.enabled }}
             - mountPath: "/var/osca/google_service"
-              name: {{ .Values.googleServiceaccount.secretName }}
+              name: {{ .Values.googleServiceAccount.secretName }}
               readOnly: true
           {{- end }}
           lifecycle:
@@ -83,8 +83,8 @@ spec:
                   {{- if .Values.pushCert.enabled }}
                   - cp /var/osca/push_cert/ios_push_key.p8 /usr/src/app/ios_push_key.p8
                   {{- end }}
-                  {{- if .Values.googleServiceaccount.enabled }}
-                  - cp /var/osca/push_cert/google_service.json /usr/src/app/google_service.json
+                  {{- if .Values.googleServiceAccount.enabled }}
+                  - cp /var/osca/google_service/google_service.json /usr/src/app/google_service.json
                   {{- end }}
       volumes:
       {{- if .Values.pushCert.enabled }}
@@ -92,10 +92,10 @@ spec:
           secret:
             secretName: {{ .Values.pushCert.secretName }}
       {{- end }}
-      {{- if .Values.googleServiceaccount.enabled }}
-        - name: {{ .Values.googleServiceaccount.secretName }}
+      {{- if .Values.googleServiceAccount.enabled }}
+        - name: {{ .Values.googleServiceAccount.secretName }}
           secret:
-            secretName: {{ .Values.googleServiceaccount.secretName }}
+            secretName: {{ .Values.googleServiceAccount.secretName }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
