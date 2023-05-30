@@ -673,6 +673,36 @@ entries:
         - "✨ initial release"
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-30T10:42:01.476741166Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.11.3
+    description: A Helm chart for mammut media parse-server-template
+    digest: 3c72acb8698491d4b88c408737f95d2185730f18ba94f9a76f2f8addd6244571
+    home: https://mammutmedia.eu/
+    keywords:
+    - parse-server
+    - parse-server-template
+    - mammut-media
+    - mammutmedia
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+    name: parse-server
+    sources:
+    - https://github.com/mammutmedia/helm-charts
+    - https://github.com/mammutmedia/parse-server-template
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-server-1.0.3/parse-server-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/changes: |
+        - "✨ initial release"
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-04-23T10:18:55.630474615Z"
     dependencies:
     - condition: redis.enabled
@@ -1254,4 +1284,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-23T10:18:56.725333241Z"
+generated: "2023-05-30T10:42:01.476979076Z"
