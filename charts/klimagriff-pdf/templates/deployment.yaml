@@ -66,16 +66,13 @@ spec:
           volumeMounts:
             - name: files
               mountPath: /usr/src/app/public
-              {{- if .Values.persistence.subPath }}
-              subPath: {{ .Values.persistence.subPath }}
-              {{- end }}
       volumes:
         - name: files
           {{- if .Values.persistence.enabled }}
-            persistentVolumeClaim:
-              claimName: {{ .Values.persistence.existingClaim | default (include "klimagriff-pdf.fullname" .) }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "klimagriff-pdf.fullname" .) }}
           {{- else }}
-            emptyDir: {}
+          emptyDir: {}
           {{- end -}}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -134,6 +134,6 @@ affinity: {}
 
 persistence:
   enabled: true
-  storageClass: default
+  # storageClass: default
   accessMode: ReadWriteOnce
   size: 10Gi
