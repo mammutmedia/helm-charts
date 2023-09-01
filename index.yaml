@@ -231,6 +231,16 @@ entries:
   klimagriff-pdf:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-09-01T13:14:20.464929305Z"
+    description: A Helm chart for Kubernetes
+    digest: 8e9d0fd338ce5533b2eab31a625e1d89e2c483a861a61cfd374538db5663d88b
+    name: klimagriff-pdf
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/klimagriff-pdf-1.0.1/klimagriff-pdf-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-09-01T10:12:54.964769597Z"
     description: A Helm chart for Kubernetes
     digest: 281047ee22977bce922251f0408e8467f2b56aade8252a5f4e057d8887664638
@@ -1315,4 +1325,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-01T10:12:54.964967907Z"
+generated: "2023-09-01T13:14:20.465241608Z"
