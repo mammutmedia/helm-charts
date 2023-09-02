@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: {{ .Chart.Name }}-config
           secret:
-            secretName: {{ .Chart.Name }}-config
+            secretName: {{ .Values.config.secretName }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
