@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  ar-auth-service:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-10-03T00:51:50.47137007Z"
+    description: A Helm chart for Kubernetes
+    digest: f65c552edcadd6f779ba0bf99b5c02010feab4cc5ad4364f136a70d1a485b3f4
+    name: ar-auth-service
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/ar-auth-service-0.0.1/ar-auth-service-0.0.1.tgz
+    version: 0.0.1
   arcommunity-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1351,4 +1362,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-02T07:27:36.815087938Z"
+generated: "2023-10-03T00:51:50.471534476Z"
