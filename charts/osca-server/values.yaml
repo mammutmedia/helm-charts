@@ -132,6 +132,10 @@ googleServiceaccount:
   enabled: false
   secretName: osca-server-google-serviceaccount
 
+dotEnvVault:
+  enabled: false
+  secretName: osca-server-dotenv-vault
+
 maxUnavailable: 50%
 
 nodeSelector: {}

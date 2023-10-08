@@ -74,6 +74,11 @@ spec:
               name: {{ .Values.googleServiceAccount.secretName }}
               readOnly: true
           {{- end }}
+          {{- if .Values.dotEnvVault.enabled }}
+            - mountPath: "/var/osca/env_vault"
+              name: {{ .Values.dotEnvVault.secretName }}
+              readOnly: true
+          {{- end }}
           lifecycle:
             postStart:
               exec:
@@ -87,6 +92,9 @@ spec:
                     if [ -f "/var/osca/google_service/google_service.json" ]; then
                       cp /var/osca/google_service/google_service.json /usr/src/app/google_service.json;
                     fi;
+                    if [ -f "/var/osca/env_vault/.env.vault" ]; then
+                      cp /var/osca/env_vault/.env.vault /usr/src/app/.env.vault;
+                    fi;
       volumes:
       {{- if .Values.pushCert.enabled }}
         - name: {{ .Values.pushCert.secretName }}
@@ -97,6 +105,11 @@ spec:
         - name: {{ .Values.googleServiceAccount.secretName }}
           secret:
             secretName: {{ .Values.googleServiceAccount.secretName }}
+      {{- end }}
+      {{- if .Values.dotEnvVault.enabled }}
+        - name: {{ .Values.dotEnvVault.secretName }}
+          secret:
+            secretName: {{ .Values.dotEnvVault.secretName }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
