@@ -80,7 +80,7 @@ spec:
                       cp //var/env-vault/env_vault/.env.vault /usr/src/app/.env.vault;
                     fi;
       volumes:
-      - name: {{ .Chart.Name }}-config
+        - name: {{ .Chart.Name }}-config
           secret:
             secretName: {{ .Values.config.secretName }}
       {{- if .Values.dotEnvVault.enabled }}
