@@ -29,10 +29,6 @@ spec:
       serviceAccountName: {{ include "parse-dashboard.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      volumes:
-        - name: {{ .Chart.Name }}-config
-          secret:
-            secretName: {{ .Values.config.secretName }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -65,9 +61,33 @@ spec:
             successThreshold: 1
             failureThreshold: 5
           volumeMounts:
+          {{- if .Values.dotEnvVault.enabled }}
+            - mountPath: "/var/env-vault/env_vault"
+              name: {{ .Values.dotEnvVault.secretName }}
+              readOnly: true
+          {{- end }}
             - name: {{ .Chart.Name }}-config
               mountPath: /usr/src/app/config
               readOnly: true
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - >
+                    if [ -f "/var/env-vault/env_vault/.env.vault" ]; then
+                      cp //var/env-vault/env_vault/.env.vault /usr/src/app/.env.vault;
+                    fi;
+      volumes:
+      - name: {{ .Chart.Name }}-config
+          secret:
+            secretName: {{ .Values.config.secretName }}
+      {{- if .Values.dotEnvVault.enabled }}
+        - name: {{ .Values.dotEnvVault.secretName }}
+          secret:
+            secretName: {{ .Values.dotEnvVault.secretName }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
