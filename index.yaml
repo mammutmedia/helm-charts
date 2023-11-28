@@ -239,6 +239,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/e4f-server-0.9.0/e4f-server-0.9.0.tgz
     version: 0.9.0
+  fa-icon-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-11-28T21:52:10.026424134Z"
+    description: A Helm chart for Kubernetes
+    digest: bae349821efaa51632aead712e1210e682564a9655f44f9c8e1e1b593f37b821
+    name: fa-icon-service
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/fa-icon-service-1.0.0/fa-icon-service-1.0.0.tgz
+    version: 1.0.0
   klimagriff-pdf:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1424,4 +1435,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-16T09:48:49.253284992Z"
+generated: "2023-11-28T21:52:10.026579954Z"
