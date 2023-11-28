@@ -1,0 +1,99 @@
+{{- $svcPort := .Values.service.port -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "fa-icon-service.fullname" . }}
+  labels:
+    {{- include "fa-icon-service.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "fa-icon-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "fa-icon-service.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "fa-icon-service.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.env.secretName }}
+          env:
+            - name: PORT
+              value: "{{ .Values.service.port | default 3000 }}"
+          ports:
+            - containerPort: {{ .Values.service.port | default 3000 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.port | default 3000 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.port | default 3000 }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          volumeMounts:
+          {{- if .Values.dotEnvVault.enabled }}
+            - mountPath: "/var/app/env_vault"
+              name: {{ .Values.dotEnvVault.secretName }}
+              readOnly: true
+          {{- end }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - >
+                    if [ -f "/var/app/env_vault/.env.vault" ]; then
+                      cp /var/app/env_vault/.env.vault /usr/src/app/.env.vault;
+                    fi;
+      volumes:
+      {{- if .Values.dotEnvVault.enabled }}
+        - name: {{ .Values.dotEnvVault.secretName }}
+          secret:
+            secretName: {{ .Values.dotEnvVault.secretName }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

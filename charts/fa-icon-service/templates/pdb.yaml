@@ -1,0 +1,17 @@
+{{- if .Values.maxUnavailable }}
+{{- if .Capabilities.APIVersions.Has "policy/v1" -}}
+apiVersion: policy/v1
+{{- else}}
+apiVersion: policy/v1beta1
+{{- end }}
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "fa-icon-service.fullname" . }}
+  labels:
+    {{- include "fa-icon-service.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "fa-icon-service.selectorLabels" . | nindent 6 }}
+{{- end }}
