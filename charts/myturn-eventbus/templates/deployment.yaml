@@ -66,9 +66,6 @@ spec:
               name: {{ .Values.dotEnvVault.secretName }}
               readOnly: true
           {{- end }}
-            - name: {{ .Chart.Name }}-config
-              mountPath: /usr/src/app/config
-              readOnly: true
           lifecycle:
             postStart:
               exec:
@@ -80,9 +77,6 @@ spec:
                       cp //var/env-vault/env_vault/.env.vault /usr/src/app/.env.vault;
                     fi;
       volumes:
-        - name: {{ .Chart.Name }}-config
-          secret:
-            secretName: {{ .Values.config.secretName }}
       {{- if .Values.dotEnvVault.enabled }}
         - name: {{ .Values.dotEnvVault.secretName }}
           secret:
