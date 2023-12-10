@@ -38,9 +38,6 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
-env:
-  secretName: scalabrin-backend-env
-
 service:
   type: ClusterIP
   port: 1337
@@ -89,3 +86,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+dotEnvVault:
+  enabled: false

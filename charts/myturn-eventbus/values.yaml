@@ -40,7 +40,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 4040
+  port: 1337
 
 ingress:
   enabled: false
