@@ -1,3 +1,5 @@
+{{- $svcPort := .Values.service.port -}}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,16 +33,15 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - secretRef:
                 name: {{ .Values.env.secretName }}
-          env:
-            - name: PORT
-              value: "{{ .Values.service.port | default 1337 }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port | default 1337 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
             httpGet:
               path: /healthz
@@ -49,7 +50,7 @@ spec:
             timeoutSeconds: 30
             periodSeconds: 10
             successThreshold: 1
-            failureThreshold: 5
+            failureThreshold: 3
           livenessProbe:
             httpGet:
               path: /healthz
@@ -59,8 +60,34 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          {{- if .Values.dotEnvVault.enabled }}
+            - mountPath: "/var/env-vault/env_vault"
+              name: {{ .Values.dotEnvVault.secretName }}
+              readOnly: true
+          {{- end }}
+            - name: {{ .Chart.Name }}-config
+              mountPath: /usr/src/app/config
+              readOnly: true
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - >
+                    if [ -f "/var/env-vault/env_vault/.env.vault" ]; then
+                      cp //var/env-vault/env_vault/.env.vault /usr/src/app/.env.vault;
+                    fi;
+      volumes:
+        - name: {{ .Chart.Name }}-config
+          secret:
+            secretName: {{ .Values.config.secretName }}
+      {{- if .Values.dotEnvVault.enabled }}
+        - name: {{ .Values.dotEnvVault.secretName }}
+          secret:
+            secretName: {{ .Values.dotEnvVault.secretName }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
