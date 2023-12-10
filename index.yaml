@@ -342,6 +342,27 @@ entries:
           image: mammuthosting/myturn-eventbus:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-12-10T20:54:41.267084003Z"
+    description: A Helm chart for myturn-eventbus
+    digest: cbc3263ed4250b38338b710f93aa65378e5eafa3c0c1aa7f95592013267401de
+    home: https://github.com/mammutmedia/myturn-eventbus
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: myturn-eventbus
+    sources:
+    - https://github.com/mammutmedia/myturn-eventbus
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.0.8/myturn-eventbus-1.0.8.tgz
+    version: 1.0.8
+  - annotations:
+      artifacthub.io/images: |
+        - name: myturn-eventbus
+          image: mammuthosting/myturn-eventbus:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-10T14:03:09.830029229Z"
     description: A Helm chart for myturn-eventbus
     digest: aa7da8da03c59990dd7d496326870bd60c4aa02f39bdd552a6978788e239d440
@@ -1304,6 +1325,27 @@ entries:
           image: mammuthosting/scalabrin-backend:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-12-10T20:54:41.462700822Z"
+    description: A Helm chart for scalabrin-backend
+    digest: b4875a15d60d72c28dfdf272151b002d2c82b304be327860ece18864a2b71705
+    home: https://github.com/mammutmedia/scalabrin-backend
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: scalabrin-backend
+    sources:
+    - https://github.com/mammutmedia/scalabrin-backend
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/scalabrin-backend-1.0.7/scalabrin-backend-1.0.7.tgz
+    version: 1.0.7
+  - annotations:
+      artifacthub.io/images: |
+        - name: scalabrin-backend
+          image: mammuthosting/scalabrin-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-04-23T10:18:56.414004205Z"
     description: A Helm chart for scalabrin-backend
     digest: 8db50c2ebbb68bc878e877351f085ccda1302213340afb90b61afa84226164a1
@@ -1477,4 +1519,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T14:03:09.830212209Z"
+generated: "2023-12-10T20:54:41.462847704Z"
