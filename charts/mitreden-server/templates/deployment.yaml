@@ -33,14 +33,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - secretRef:
                 name: {{ .Values.env.secretName }}
-          env:
-            - name: PORT
-              value: "{{ .Values.service.port | default 1337 }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port | default 1337 }}
           resources:
@@ -63,6 +60,28 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
+          volumeMounts:
+          {{- if .Values.dotEnvVault.enabled }}
+            - mountPath: "/var/env-vault/env_vault"
+              name: {{ .Values.dotEnvVault.secretName }}
+              readOnly: true
+          {{- end }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - >
+                    if [ -f "/var/env-vault/env_vault/.env.vault" ]; then
+                      cp //var/env-vault/env_vault/.env.vault /usr/src/app/.env.vault;
+                    fi;
+      volumes:
+      {{- if .Values.dotEnvVault.enabled }}
+        - name: {{ .Values.dotEnvVault.secretName }}
+          secret:
+            secretName: {{ .Values.dotEnvVault.secretName }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

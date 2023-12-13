@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: '1.0.0'
 description: A Helm chart for mitreden-server.
 name: mitreden-server
-version: '1.0.3'
+version: '1.0.4'
 home: https://github.com/mammutmedia/mitreden-server
 sources:
   - https://github.com/mammutmedia/mitreden-server
