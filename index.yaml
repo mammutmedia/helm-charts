@@ -155,6 +155,32 @@ entries:
           url: https://docs.renovatebot.com
     apiVersion: v2
     appVersion: 0.9.0
+    created: "2023-12-14T00:05:20.865865148Z"
+    description: A Helm chart for e4f-server
+    digest: fe3e2cd56d9fc857518e18fe50d8a48c866e562b0de938b4762ba47f348e85c7
+    home: https://github.com/mammutmedia/e4f-server
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: e4f-server
+    sources:
+    - https://github.com/mammutmedia/e4f-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/e4f-server-0.9.4/e4f-server-0.9.4.tgz
+    version: 0.9.4
+  - annotations:
+      artifacthub.io/images: |
+        - name: e4f-server
+          image: mammuthosting/e4f-server:0.9.0
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 0.9.0
     created: "2023-04-23T10:18:54.939524998Z"
     description: A Helm chart for e4f-server
     digest: 8f2d3338be033446c0d0564e8b2f8d97d303e46b1fc32a5e6b3a392367c0d436
@@ -1581,4 +1607,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-13T21:30:07.202658104Z"
+generated: "2023-12-14T00:05:20.866007974Z"
