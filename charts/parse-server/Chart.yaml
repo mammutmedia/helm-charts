@@ -21,6 +21,6 @@ annotations:
     - "✨ initial release"
 dependencies:
   - name: redis
-    version: 17.11.3
+    version: 17.11.8
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
