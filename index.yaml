@@ -399,6 +399,27 @@ entries:
           image: mammuthosting/myturn-eventbus:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-04-14T20:23:34.347007565Z"
+    description: A Helm chart for myturn-eventbus
+    digest: 1008fccea28ed98fd74ebaf71270a68da9def8f91b2976aa813dfccdc7a0080c
+    home: https://github.com/mammutmedia/myturn-eventbus
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: myturn-eventbus
+    sources:
+    - https://github.com/mammutmedia/myturn-eventbus
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.1.0/myturn-eventbus-1.1.0.tgz
+    version: 1.1.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: myturn-eventbus
+          image: mammuthosting/myturn-eventbus:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-10T20:54:41.267084003Z"
     description: A Helm chart for myturn-eventbus
     digest: cbc3263ed4250b38338b710f93aa65378e5eafa3c0c1aa7f95592013267401de
@@ -1717,4 +1738,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-14T17:10:58.231192973Z"
+generated: "2024-04-14T20:23:34.347213739Z"
