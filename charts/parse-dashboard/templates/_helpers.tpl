@@ -60,3 +60,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Namespace defines the namespace to deploy the chart
+*/}}
+{{- define "parse-dashboard.namespace" -}}
+{{- default .Release.Namespace }}
+{{- end }}

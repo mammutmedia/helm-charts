@@ -2,13 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "parse-dashboard.fullname" . }}
-  labels:
-    {{- include "parse-dashboard.labels" . | nindent 4 }}
+  labels: {{- include "parse-dashboard.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port | default 4040 }}
+      targetPort: http
       protocol: TCP
       name: http
   selector:
