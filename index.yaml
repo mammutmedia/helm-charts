@@ -714,6 +714,32 @@ entries:
           url: https://docs.renovatebot.com
     apiVersion: v2
     appVersion: 5.2.0
+    created: "2024-04-14T17:10:58.230913282Z"
+    description: A Helm chart for parse-dashboard
+    digest: 20bb18618e59150c9a82a4b0764ad3bb127a61b44e9ffcb5eafe16de13e4876d
+    home: https://github.com/mammutmedia/parse-dashboard
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: parse-dashboard
+    sources:
+    - https://github.com/mammutmedia/parse-dashboard
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/parse-dashboard-4.1.0/parse-dashboard-4.1.0.tgz
+    version: 4.1.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: parse-dashboard
+          image: mammuthosting/parse-dashboard:4.4.17
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: docs
+          url: https://docs.renovatebot.com
+    apiVersion: v2
+    appVersion: 5.2.0
     created: "2023-10-16T09:48:49.253045479Z"
     description: A Helm chart for parse-dashboard
     digest: 34986019a1ea62c1458124a702150e1465e59f962ee14434522840d4c894cc9d
@@ -1691,4 +1717,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-14T14:01:23.399679249Z"
+generated: "2024-04-14T17:10:58.231192973Z"
