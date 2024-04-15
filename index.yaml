@@ -106,6 +106,16 @@ entries:
   deepwood-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-04-15T09:04:49.763050081Z"
+    description: A Helm chart for Kubernetes
+    digest: c8a21aade639c14aef6e1a8613a6966be4d093ad536ca2cc80cfd63198d6bb48
+    name: deepwood-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/deepwood-server-1.1.0/deepwood-server-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-11T14:06:14.013836226Z"
     description: A Helm chart for Kubernetes
     digest: 80e3664429652bd036aa45a9afe4caefaa8624a3ed91cfdf83ded4e22ac570c2
@@ -1738,4 +1748,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-14T20:23:34.347213739Z"
+generated: "2024-04-15T09:04:49.763253831Z"
