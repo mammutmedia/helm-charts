@@ -75,6 +75,15 @@ resources:
   #   cpu: 100m
   #   memory: 128Mi
 
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
 autoscaling:
   enabled: false
   minReplicas: 1
@@ -84,11 +93,39 @@ autoscaling:
 
 maxUnavailable: 50%
 
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
 
-dotEnvVault:
-  enabled: false
+envFrom: []
+
+env: []
+
+metrics:
+  prometheus:
+    entryPoint: /metrics
+
+    # prometheusRule:
+    #   rules: []
+
+    serviceMonitor:
+      enabled: false
+      namespace: monitoring
+      additionalLabels: {}
+      interval: 30s
+      scrapeTimeout: 15s
