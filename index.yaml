@@ -1114,6 +1114,16 @@ entries:
   prinoa-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-04-18T17:26:25.23659248Z"
+    description: A Helm chart for Kubernetes
+    digest: afab36afa21764b5be6eefb6b2d4c9607c21eff7deebe1063131f31ba92f7fc0
+    name: prinoa-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/prinoa-server-1.1.0/prinoa-server-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-12T19:36:16.09281611Z"
     description: A Helm chart for Kubernetes
     digest: 65974f8a82c22affad94c13464bebc0356e6172932d79a6b1a21aa981041c2e2
@@ -1748,4 +1758,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-15T09:04:49.763253831Z"
+generated: "2024-04-18T17:26:25.236804927Z"
