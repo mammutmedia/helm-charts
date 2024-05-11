@@ -1,0 +1,17 @@
+{{- if .Values.maxUnavailable }}
+{{- if .Capabilities.APIVersions.Has "policy/v1" -}}
+apiVersion: policy/v1
+{{- else}}
+apiVersion: policy/v1beta1
+{{- end }}
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "brueckensteig-server.fullname" . }}
+  labels:
+    {{- include "brueckensteig-server.labels" . | nindent 4 }}
+spec:
+  maxUnavailable: {{ .Values.maxUnavailable }}
+  selector:
+    matchLabels:
+      {{- include "brueckensteig-server.selectorLabels" . | nindent 6 }}
+{{- end }}
