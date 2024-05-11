@@ -42,6 +42,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/arcommunity-server-1.0.0/arcommunity-server-1.0.0.tgz
     version: 1.0.0
+  brueckensteig-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-05-11T10:39:20.387585681Z"
+    description: A Helm chart for Kubernetes
+    digest: 36a92978fb2f47eafe9a375b974304a88615115c6354515a82ed5e0583f7d871
+    name: brueckensteig-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/brueckensteig-server-1.0.0/brueckensteig-server-1.0.0.tgz
+    version: 1.0.0
   coronaschnell-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1758,4 +1769,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-18T17:26:25.236804927Z"
+generated: "2024-05-11T10:39:20.38776212Z"
