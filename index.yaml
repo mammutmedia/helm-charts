@@ -624,6 +624,17 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/myturn-eventbus-1.0.0/myturn-eventbus-1.0.0.tgz
     version: 1.0.0
+  osca-ng-server:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-05-21T09:03:35.540156264Z"
+    description: A Helm chart for Kubernetes
+    digest: d3e04547c18ff3e48b6a1041f47c64044112e9fc1fb45698bf0f15523a209879
+    name: osca-ng-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/osca-ng-server-1.0.0/osca-ng-server-1.0.0.tgz
+    version: 1.0.0
   osca-server:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1769,4 +1780,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-11T10:39:20.38776212Z"
+generated: "2024-05-21T09:03:35.540338614Z"
