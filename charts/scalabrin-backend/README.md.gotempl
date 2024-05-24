@@ -16,10 +16,10 @@ helm repo add mammut-helm https://mammutmedia.github.io/helm-charts/
 helm repo update
 ```
 
-## Install scalabrin-backend chart
+## Install parse-dashboard chart
 
 ```bash
-helm install scalabrin-backend mammut-helm/scalabrin-backend
+helm install parse-dashboard mammut-helm/parse-dashboard
 ```
 
 ## Configuration
