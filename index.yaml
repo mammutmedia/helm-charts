@@ -1491,6 +1491,27 @@ entries:
           image: mammuthosting/scalabrin-backend:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-05-24T22:59:58.894833417Z"
+    description: A Helm chart for scalabrin-backend
+    digest: 017fcb0328cc9694e5157c7cef2d70fc308c165fd7a2ef30ab9a0d849ceb2d9d
+    home: https://github.com/mammutmedia/scalabrin-backend
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: scalabrin-backend
+    sources:
+    - https://github.com/mammutmedia/scalabrin-backend
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/scalabrin-backend-1.1.0/scalabrin-backend-1.1.0.tgz
+    version: 1.1.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: scalabrin-backend
+          image: mammuthosting/scalabrin-backend:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-10T20:54:41.462700822Z"
     description: A Helm chart for scalabrin-backend
     digest: b4875a15d60d72c28dfdf272151b002d2c82b304be327860ece18864a2b71705
@@ -1790,4 +1811,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-21T09:08:48.563559531Z"
+generated: "2024-05-24T22:59:58.895104612Z"
