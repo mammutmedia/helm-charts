@@ -1804,6 +1804,16 @@ entries:
   xerleben:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-05-25T11:22:22.555100975Z"
+    description: A Helm chart for Kubernetes
+    digest: 027763786239cdf5f613d46a8b3ca8674c447faa16249c6eaec01db026ac2279
+    name: xerleben
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.1.0/xerleben-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-04-23T10:18:56.725125839Z"
     description: A Helm chart for Kubernetes
     digest: 00082aedb9e3ff60df7f7c63b4750e3dca0197dba5e5bd6a37218596bb6c5f8d
@@ -1832,4 +1842,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-25T10:11:49.413768491Z"
+generated: "2024-05-25T11:22:22.555288256Z"
