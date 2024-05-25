@@ -335,6 +335,27 @@ entries:
           image: mammuthosting/mitreden-server:1.0.0
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-05-25T10:11:49.413594977Z"
+    description: A Helm chart for mitreden-server.
+    digest: 7f9fdd5b6f1000b92a1fec559bbd03b05c7c7b5e21f7670b67e1cb24126f3112
+    home: https://github.com/mammutmedia/mitreden-server
+    maintainers:
+    - email: f.nithammer@mammutmedia.eu
+      name: Felix Nithammer
+      url: https://mammutmedia.eu
+    name: mitreden-server
+    sources:
+    - https://github.com/mammutmedia/mitreden-server
+    - https://github.com/mammutmedia/helm-charts
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/mitreden-server-1.1.0/mitreden-server-1.1.0.tgz
+    version: 1.1.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: mitreden-server
+          image: mammuthosting/mitreden-server:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-13T21:30:07.202471749Z"
     description: A Helm chart for mitreden-server.
     digest: 5c81d9f867d2a30e170dd5f75dc696821c1e7c1d251300bdc772742191032f6e
@@ -1811,4 +1832,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-24T22:59:58.895104612Z"
+generated: "2024-05-25T10:11:49.413768491Z"
