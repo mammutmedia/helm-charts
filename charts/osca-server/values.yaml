@@ -110,6 +110,8 @@ nodeSelector: {}
 
 tolerations: []
 
+hostAliases: []
+
 affinity: {}
 
 envFrom: []
