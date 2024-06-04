@@ -669,6 +669,16 @@ entries:
   osca-server:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-06-04T21:24:55.256757436Z"
+    description: A Helm chart for Kubernetes
+    digest: 8daa78c6156d9ee83b71cd57c67d585a70ce9032186abb85f0a04362006aace7
+    name: osca-server
+    type: application
+    urls:
+    - https://github.com/mammutmedia/helm-charts/releases/download/osca-server-2.1.0/osca-server-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-05-21T09:08:48.563275813Z"
     description: A Helm chart for Kubernetes
     digest: 62a1359d27a8c06398762bbf26269b133d9079f9acc877fa37cdfb83bb17f849
@@ -1852,4 +1862,4 @@ entries:
     urls:
     - https://github.com/mammutmedia/helm-charts/releases/download/xerleben-1.0.0/xerleben-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-26T19:57:54.187726429Z"
+generated: "2024-06-04T21:24:55.257042644Z"
